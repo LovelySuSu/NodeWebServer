@@ -1,2 +1,1 @@
-let a = '1233'
-console.log(a)
+console.log('12333')
