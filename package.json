@@ -1,0 +1,26 @@
+{
+  "name": "nodewebserver",
+  "version": "1.0.0",
+  "description": "Node Js Static Web Server",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --fix ."
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LovelySuSu/nodeWebServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LovelySuSu/nodeWebServer/issues"
+  },
+  "homepage": "https://github.com/LovelySuSu/nodeWebServer#readme",
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "pre-commit": "^1.2.2"
+  }
+}
