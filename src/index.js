@@ -4,8 +4,9 @@ const config = require('./config/defaultConfig')
 
 const server = http.createServer((req,res) => {
 	res.statusCode = 200
-	res.setHeader('Content-Type','text/plain')
-	res.end('Hello Wold')
+	res.setHeader('Content-Type','text/html')
+    res.write('<html><body><h1>Hello World</h1></body></html>')
+	res.end()
 })
 
 server.listen(config.port,config.hostname,()=>{
