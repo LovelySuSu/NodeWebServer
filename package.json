@@ -4,7 +4,8 @@
   "description": "Node Js Static Web Server",
   "main": "src/index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --fix ."
+    "lint": "./node_modules/.bin/eslint --fix .",
+    "start": "./node_modules/.bin/supervisor src/index.js"
   },
   "pre-commit": [
     "lint"
@@ -25,6 +26,7 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "supervisor": "^0.12.0"
   }
 }
