@@ -17,13 +17,13 @@ const server = http.createServer((req,res) => {
 		if(stats.isFile()) {
 			res.statusCode = 200
 			res.setHeader('Content-Type','text/plain')
-			fs.createWriteStream(filePath).pipe(res)
+			fs.createReadStream(filePath).pipe(res)
 			return
 		} else if(stats.isDirectory()) {
 			fs.readdir(filePath,(error,files) => {
-                res.statusCode = 200
-                res.setHeader('Content-Type','text/plain')
-                res.end(files.join(','))
+				res.statusCode = 200
+				res.setHeader('Content-Type','text/plain')
+				res.end(files.join(','))
 			})
 		}
 	})
