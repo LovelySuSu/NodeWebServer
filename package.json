@@ -1,6 +1,6 @@
 {
   "name": "node_webserver_dingsusu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node Js Static Web Server",
   "main": "src/index.js",
   "bin": {
