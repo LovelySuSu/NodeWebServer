@@ -8,6 +8,7 @@ const config = require('../config/defaultConfig')
 const mime = require('./mime')
 const compress = require('./compress')
 const range = require('./range')
+const isFresh = require('./cache')
 
 
 module.exports = async function (req,res,filePath) {
@@ -18,17 +19,22 @@ module.exports = async function (req,res,filePath) {
 		if(stats.isFile()) {
 			const contentType = mime(filePath)
 			res.setHeader('Content-Type',mime(contentType))
-            let readStream  = fs.createReadStream(filePath)
-            const { code,start,end } = range(stats.size,req,res)
-            if (code === 200) {
-                readStream = fs.createReadStream(filePath)
-            } else {
-                readStream = fs.createReadStream(filePath,{
-                    start,
-                    end
-                })
-            }
-            res.statusCode = code
+			if (isFresh(stats,req,res)) {
+				res.statusCode = 304
+				res.end()
+				return
+			}
+			let readStream  = fs.createReadStream(filePath)
+			const { code,start,end } = range(stats.size,req,res)
+			if (code === 200) {
+				readStream = fs.createReadStream(filePath)
+			} else {
+				readStream = fs.createReadStream(filePath,{
+					start,
+					end
+				})
+			}
+			res.statusCode = code
 			if (filePath.match(config.compress)) {
 				readStream = compress(readStream,req,res)
 			}
