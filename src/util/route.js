@@ -7,8 +7,8 @@ const readdir = promisify(fs.readdir)
 const config = require('../config/defaultConfig')
 
 module.exports = async function (req,res,filePath) {
-    const source = fs.readFileSync(path.join(__dirname,'../template/dir.tpl'))
-    const template = Handlebars.compile(source.toString())
+	const source = fs.readFileSync(path.join(__dirname,'../template/dir.tpl'))
+	const template = Handlebars.compile(source.toString())
 	try {
 		const stats = await stat(filePath)
 		if(stats.isFile()) {
