@@ -1,5 +1,5 @@
 {
-  "name": "nodewebserver",
+  "name": "node_webserver_dingsusu",
   "version": "1.0.0",
   "description": "Node Js Static Web Server",
   "main": "src/index.js",
@@ -26,10 +26,10 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
-    "handlebars": "^4.1.1",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "handlebars": "^4.1.1",
     "chalk": "^2.4.2",
     "supervisor": "^0.12.0",
     "yargs": "^13.2.2"
