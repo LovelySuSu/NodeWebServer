@@ -7,6 +7,7 @@ const readdir = promisify(fs.readdir)
 const config = require('../config/defaultConfig')
 const mime = require('./mime')
 const compress = require('./compress')
+const range = require('./range')
 
 
 module.exports = async function (req,res,filePath) {
@@ -16,9 +17,18 @@ module.exports = async function (req,res,filePath) {
 		const stats = await stat(filePath)
 		if(stats.isFile()) {
 			const contentType = mime(filePath)
-			res.statusCode = 200
 			res.setHeader('Content-Type',mime(contentType))
-			let readStream = fs.createReadStream(filePath)
+            let readStream  = fs.createReadStream(filePath)
+            const { code,start,end } = range(stats.size,req,res)
+            if (code === 200) {
+                readStream = fs.createReadStream(filePath)
+            } else {
+                readStream = fs.createReadStream(filePath,{
+                    start,
+                    end
+                })
+            }
+            res.statusCode = code
 			if (filePath.match(config.compress)) {
 				readStream = compress(readStream,req,res)
 			}
