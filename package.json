@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Node Js Static Web Server",
   "main": "src/index.js",
+  "bin": {
+    "ddWebServer": "bin/ddWebServer"
+  },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix .",
     "start": "./node_modules/.bin/supervisor src/init.js"
