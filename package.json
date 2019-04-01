@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix .",
-    "start": "./node_modules/.bin/supervisor src/index.js"
+    "start": "./node_modules/.bin/supervisor src/init.js"
   },
   "pre-commit": [
     "lint"
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "supervisor": "^0.12.0"
+    "supervisor": "^0.12.0",
+    "yargs": "^13.2.2"
   }
 }
