@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint --fix .",
     "start": "supervisor src/init.js",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "babel": "babel src -d dist"
   },
   "pre-commit": [
     "lint"
@@ -25,7 +26,9 @@
   },
   "homepage": "https://github.com/LovelySuSu/nodeWebServer#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^5.15.3",
     "gulp": "^4.0.0",
     "pre-commit": "^1.2.2"
