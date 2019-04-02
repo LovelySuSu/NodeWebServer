@@ -7,8 +7,9 @@
     "ddWebServer": "bin/ddWebServer"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --fix .",
-    "start": "./node_modules/.bin/supervisor src/init.js"
+    "lint": "eslint --fix .",
+    "start": "supervisor src/init.js",
+    "gulp": "gulp"
   },
   "pre-commit": [
     "lint"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
+    "gulp": "^4.0.0",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
